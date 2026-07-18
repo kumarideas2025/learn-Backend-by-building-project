@@ -8,7 +8,16 @@ dotenv.config({
 })
 
 connectDB()
-
+.then(()=>{
+    app.listen(process.env.port || 8000,()=>{
+        console.log(`server is running port:${process.env.port}`);
+        
+    })
+})
+.catch((err)=>{
+     console.log(("MOGO DB connection failed",err));
+     
+})
 
 
 
